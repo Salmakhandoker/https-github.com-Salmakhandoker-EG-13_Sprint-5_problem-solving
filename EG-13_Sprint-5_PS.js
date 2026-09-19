@@ -119,19 +119,15 @@ var maxDepth = function(root) {
  * @return {TreeNode}
  */
 var invertTree = function(root) {
-    if (root === null) {
+    if (root === null || root === undefined) {
         return null;
     }
 
-    // Swap left and right
     let temp = root.left;
     root.left = root.right;
     root.right = temp;
 
-    // Invert left side
     invertTree(root.left);
-
-    // Invert right side
     invertTree(root.right);
 
     return root;
